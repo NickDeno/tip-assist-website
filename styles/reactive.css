@@ -1,0 +1,139 @@
+@media only screen and (max-width: 600px){
+    /*general*/
+    section{
+        padding: 50px 65px;
+    }
+    
+    /*header*/
+    .logo i{
+        display: none;
+    }
+    
+    .about h1{
+        font-size: 60px;
+    }
+
+    /*features*/
+    .features-title{
+        font-size: 30px;
+    }
+
+    .feature-item i{
+        font-size: 40px;
+    }
+
+    .feature-item div p{
+        font-size: 15px;
+    }
+
+    /*tipout*/
+    .tipout-format{
+        margin-top: 0;
+    }
+
+    .tipout-menu{
+        margin-top: 10px;
+    }
+
+    .tipout-menu form{
+        margin-right: 0;
+    }
+
+    .tipout-menu form div{
+        justify-content: space-between;
+    }
+    .tipout-menu form div span{
+        display: none;
+    }
+
+    .tipout-menu form div label{
+        font-size: 20px;
+    }
+
+    .tipout-menu form div input, .tipout-menu form div select {
+        font-size: 18px;
+        height: 35px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .links{
+        display: block;
+        background: rgb(39, 108, 211);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -200px;
+        width: 150px;
+        padding-top: 70px;
+        z-index: 2;
+        transition: right .5s;
+    }
+
+    .links i{
+        margin-right: 10px;
+    }
+
+    .links .fas{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    .links li{
+        margin-left: 15px;
+        margin-right: 0;
+        margin-bottom: 30px;
+        display: block;
+        position: relative;
+    }
+
+    .links li::before{
+        content: '';
+        background-color: white;
+        width: 0;
+        height: 35px;
+        bottom: -5px;
+        left: -15px;
+        position: absolute;
+        transition: width 0.5s;
+    }
+
+    .links li:hover::before{
+        width: 150px;
+    }
+
+    .links li a{
+        transition: color 0.5s;
+    }
+
+    .links li:hover a{
+        color: rgb(39, 108, 211);
+    }
+
+    .links li a::after{
+        display: none;
+    }
+
+    .links li i{
+        display: inline-block;
+    }
+
+    .navbar .fas{
+        display: block;
+        font-size: 35px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    /*creator*/
+    .creator-col2 h1{
+        text-align: center;
+    }
+    .creator-col2 p{
+        min-width: 300px;
+        text-align: center;
+    }
+}

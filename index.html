@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d27b7bf830.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/features.css">
+    <link rel="stylesheet" href="styles/role.css">
+    <link rel="stylesheet" href="styles/tipout.css">
+    <link rel="stylesheet" href="styles/creator.css">
+    <link rel="stylesheet" href="styles/reactive.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Rammetto+One" />
+    <title>TipAssist</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="navbar" id="navbar">
+          <div class="logo">
+            <i class="fa-solid fa-wallet"></i>
+            <i class="fa-solid fa-comments-dollar"></i>
+            <a href="#">TipAssist<span>.</span></a>
+          </div>
+          <ul class="links" id="links">
+            <li><a href="#" onclick="closemenu()"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="#features" onclick="closemenu()"><i class="fa-solid fa-gear"></i>Features</a></li>
+            <li><a href="#role" onclick="closemenu()"><i class="fa-solid fa-pen"></i>Try Now</a></li>
+            <li><a href="#creator" onclick="closemenu()"><i class="fa-solid fa-user"></i>Creator</a></li>
+            <i class="fas fa-times" onclick="closemenu()"></i>
+          </ul>
+          <i class="fas fa-bars" onclick="openmenu()"></i>
+        </div>
+        <div class="about">
+          <h1>Simplifying Tipout</h1>
+          <h2>Our goal is to streamline tip distribution by providing servers and bartenders with a user-friendly platform
+            that simplifies the process of tipping out restaurant staff.</h2>
+          <a href="#role">
+            <button>
+              <i class="fa-solid fa-share-from-square"></i>
+              <div>Try Now!</div>
+            </button>
+          </a>
+        </div>
+      </div>
+    </header>
+    <section id="features">
+      <div class="container">
+        <h1 class="features-title">Why Use TipAssist?</h1>
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <div class="feature-info">
+              <h2>Speed</h2>
+              <p>TipAssist enables servers and bartenders to effortlessly calculate tipout to restaurant staff,
+                accelerating the tip-out process with just a few clicks.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-gear"></i>
+            <div class="feature-info">
+              <h2>Customizable</h2>
+              <p>Allows for easy and flexible adjustment of varying tipout percentages to meet the specific needs of your
+                restaurant tipout process.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-handshake"></i>
+            <div class="feature-info">
+              <h2>Consistent</h2>
+              <p>Ensures accurate and consistent tipout calculations by providing a reliable platform that eliminates
+                errors and ensures precise distribution of tips</p>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section id="role">
+      <div class="container">
+        <h1 class="role-title">Try Now!</h1>
+        <h2 class="role-subtitle">Chose Your Role</h2>
+        <div class="role-row">
+          <div class="role" id="server-role" onclick="openServerTipoutFormat()">
+            <img src="imgs/replicate-prediction-7ez5gwandvaotorikvfauklque.png" alt="">
+            <div class="layer" id="server-role-layer">
+              <h3>Server</h3>
+              <p>By default, the Server role will allow for Foodrunner, Busser, and Bartender tipout to be calculated.</p>
+            </div>
+            <i class="fa-regular fa-square-check" id="server-role-selected"></i>
+          </div>
+          <div class="role" id="bartender-role" onclick="openBartenderTipoutFormat()">
+            <img src="imgs/replicate-prediction-selttx7qa5esvarixww3tj22pu.png" alt="">
+            <div class="layer" id="bartender-role-layer">
+              <h3>Bartender</h3>
+              <p>By default, the Bartender role will allow for Barback and Foodrunner tipout to be calculated.</p>
+            </div>
+            <i class="fa-regular fa-square-check" id="bartender-role-selected"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="tipout" id="bartender-tipout">
+      <div class="container">
+        <div class="tipout-format" id="bartender-tipout-format">
+          <h1>Bartender:</h1>
+          <div>
+            <label>Tipout Format: <span style="color: rgb(39, 108, 211);">*</span></label>
+            <select id="bartender-tipout-format-selector" onchange="openBartenderTipoutMenu()">
+              <option value="" disabled="disabled" selected="selected"></option>
+              <option value="fids">Fids</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+        </div>
+        <div class="tipout-menu" id="bartender-tipout-menu">
+          <form name="bartender-tipout-menu-form" onsubmit="event.preventDefault(), calcBartenderTipout()" oninput="handleBartenderFormChange(event)">
+            <div class="total-sales" id="bartender-total-sales">
+              <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Sales" required>
+              </div>
+            </div>
+            <div class="total-foodsales" id="bartender-total-foodsales">
+              <label>Total Food Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Food Sales" required> 
+              </div>
+            </div>
+            <div class="how-barback-tipout" id="bartender-how-barback-tipout">
+              <label>How is Barback Tipped Out? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="total">By Total Sales</option>
+                <option value="food">By Food Sales</option>
+              </select>
+            </div>
+            <div class="barback-tipout-percentage" id="bartender-barback-tipout-percentage">
+              <label>Barback Tipout Percentage? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value=".15">15%</option>
+                <option value=".17">17%</option>
+                <option value=".20">20%</option>
+              </select>
+            </div>
+            <div class="how-foodrunner-tipout" id="bartender-how-foodrunner-tipout">
+              <label>How is Foodrunner Tipped Out? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="food">By Food Sales</option>
+                <option value="total">By Total Sales</option>
+              </select>
+            </div>
+            <div class="foodrunner-tipout-percentage" id="bartender-foodrunner-tipout-percentage">
+              <label>Foodrunner Tipout Percentage? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value=".15">15%</option>
+                <option value=".17">17%</option>
+                <option value=".20">20%</option>
+              </select>
+            </div>
+            <p style="margin-top: 15px; color: rgb(39, 108, 211);">**Final Calculated Tipout for Each Position is Rounded to Nearest Dollar**</p>
+            <button type="submit">Calculate</button>
+          </form>
+          <div class="tipout-menu-calculated" id="bartender-tipout-menu-calculated">
+            <form name="bartender-tipout-menu-form-calculated">
+              <div class="tipout-calculated" id="bartender-barback-tipout-calculated">
+                <p>Barback:</p> 
+                <div id="bartender-barback-tipout-calculated-percent1">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="bartender-barback-tipout-calculated-percent2">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input">
+                  </div> 
+                </div>
+                <div id="bartender-barback-tipout-calculated-final">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>           
+                </div>
+              </div>
+              <div class="tipout-calculated" id="bartender-foodrunner-tipout-calculated">
+                <p>Foodrunner:</p> 
+                <div id="bartender-foodrunner-tipout-calculated-percent1">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="bartender-foodrunner-tipout-calculated-percent2">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="bartender-foodrunner-tipout-calculated-final">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>  
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="tipout" id="server-tipout">
+      <div class="container">
+        <div class="tipout-format" id="server-tipout-format">
+          <h1>Server:</h1>
+          <div>
+            <label>Tipout Format: <span style="color: rgb(39, 108, 211);">*</span></label>
+            <select id="server-tipout-format-selector" onchange="openServerTipoutMenu()">
+              <option value="" disabled="disabled" selected="selected"></option>
+              <option value="fids">Fids</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+        </div>
+        <div class="tipout-menu" id="server-tipout-menu">
+          <form name="server-tipout-menu-form" onsubmit="event.preventDefault(), calcServerTipout()" oninput="handleServerFormChange(event)">
+            <div class="total-sales" id="server-total-sales">
+              <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Sales" required onchange="validateServerSales()">
+              </div>
+            </div>
+            <div class="total-foodsales" id="server-total-foodsales">
+              <label>Total Food Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Food Sales" required onchange="validateServerSales()">
+              </div>
+            </div>
+            <div class="total-drinksales" id="server-total-drinksales">
+              <label>Total Drink Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Drink Sales" required onchange="validateServerSales()">
+              </div>
+            </div>
+            <div class="how-busser-tipout" id="server-how-busser-tipout">
+              <label>How is Busser Tipped Out? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="total">By Total Sales</option>
+                <option value="food">By Food Sales</option>
+              </select>
+            </div>
+            <div class="busser-tipout-percentage" id="server-busser-tipout-percentage">
+              <label>Busser Tipout Percentage? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value=".15">15%</option>
+                <option value=".17">17%</option>
+                <option value=".20">20%</option>
+              </select>
+            </div>
+            <div class="how-foodrunner-tipout" id="server-how-foodrunner-tipout">
+              <label>How is Foodrunner Tipped Out? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="food">By Food Sales</option>
+                <option value="total">By Total Sales</option>
+              </select>
+            </div>
+            <div class="foodrunner-tipout-percentage" id="server-foodrunner-tipout-percentage">
+              <label>Foodrunner Tipout Percentage? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value=".15">15%</option>
+                <option value=".17">17%</option>
+                <option value=".20">20%</option>
+              </select>
+            </div>
+            <div class="how-bartender-tipout" id="server-how-bartender-tipout">
+              <label>How is Bartender Tipped Out? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value="drink">By Drink Sales</option>
+                <option value="total">By Total Sales</option>
+              </select>
+            </div>
+            <div class="bartender-tipout-percentage" id="server-bartender-tipout-percentage">
+              <label>Bartender Tipout Percentage? <span style="color: rgb(39, 108, 211);">*</span></label>
+              <select required>
+                <option value="" disabled="disabled" selected="selected"></option>
+                <option value=".05">5%</option>               
+                <option value=".15">15%</option>
+                <option value=".17">17%</option>
+                <option value=".20">20%</option>
+              </select>
+            </div>
+            <p style="margin-top: 15px; color: rgb(39, 108, 211);">**Final Calculated Tipout for Each Position is Rounded to Nearest Dollar**</p>
+            <button class="calculate-button" type="submit">Calculate</button>
+          </form>
+          <div class="tipout-menu-calculated" id="server-tipout-menu-calculated">
+            <form name="server-tipout-menu-form-calculated">
+              <div class="tipout-calculated" id="server-busser-tipout-calculated">
+                <p>Busser:</p> 
+                <div id="server-busser-tipout-calculated-percent1">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i> 
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="server-busser-tipout-calculated-percent2">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="server-busser-tipout-calculated-final">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+              </div>
+              <div class="tipout-calculated" id="server-foodrunner-tipout-calculated">
+                <p>Foodrunner:</p> 
+                <div id="server-foodrunner-tipout-calculated-percent1">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="server-foodrunner-tipout-calculated-percent2">
+                  <label>x .15</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="server-foodrunner-tipout-calculated-final">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+              </div>
+              <div class="tipout-calculated" id="server-bartender-tipout-calculated">
+                <p>Bartender:</p> 
+                <div id="server-bartender-tipout-calculated-percent">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+                <div id="server-bartender-tipout-calculated-final">
+                  <label>Tipout: </label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <input type="number" disabled class="disabled-input"> 
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="creator" class="">
+      <div class="container">
+        <div class="creator-row">
+          <div class="creator-col1">
+            <img src="imgs/IMG_0564.JPG" alt="">
+            <p>Nicholas DeNobrega</p>
+            <div>
+              <a href="https://github.com/NickDeno"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.instagram.com/nick_denobrega/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=100004701406108"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+          <div class="creator-col2">
+            <h1 class="title">Creator</h1>
+            <p>"I'm Nicholas DeNobrega, an experienced bartender and aspiring computer science student. Having worked firsthand in restaurants,
+              I understand the challenges faced by servers and bartenders when it comes to completing the tipout process at the end of the shift.
+              By combining my industry experience and technical skills, I created TipAssist, with the goal to streamline and simplify the tipout process for 
+              servers and bartenders. Join me on this transformative journey as we revolutionize the art of tipping out with ease and precision. Let's make the process 
+              smoother, one click at a time!"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/navbar.js"></script>
+    <script src="js/tipout-menu.js"></script>
+    <script src="js/calculated-tipout-menu.js"></script>
+  </body>
+</html>
