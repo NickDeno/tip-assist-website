@@ -92,11 +92,12 @@ function calculateAndSetTipout(typeSales, label, line1, line2, line3, sales, tip
   label.textContent = typeSales + "$" + sales;
   line1.querySelector('label').textContent = 'x ' + tipoutPercentage;
   line1.querySelector('input').value = (sales * tipoutPercentage).toFixed(2);
-  line2.querySelector('label').textContent = 'x ' + tipoutPercentage;
   if(line3 !== null){
+    line2.querySelector('label').textContent = 'x ' + tipoutPercentage;
     line2.querySelector('input').value = (sales * tipoutPercentage * tipoutPercentage).toFixed(2);
     line3.querySelector('input').value = (sales * tipoutPercentage * tipoutPercentage).toFixed(0);
   } else {
+    line2.querySelector('label').textContent = 'Tipout:';
     line2.querySelector('input').value = (sales * tipoutPercentage).toFixed(2);
   }
 }
