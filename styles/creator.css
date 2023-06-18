@@ -26,9 +26,15 @@
 }
 
 .creator-col1 div i{
+    cursor: pointer;
     margin-right: 15px;
     font-size: 35px;
     color: rgb(39, 108, 211);
+    transition: color 0.5s;
+}
+
+.creator-col1 div i:hover{
+    color: white;
 }
 
 .creator-col2{
