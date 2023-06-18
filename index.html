@@ -86,7 +86,7 @@
         <h1 class="role-title">Try Now!</h1>
         <h2 class="role-subtitle">Chose Your Role</h2>
         <div class="role-row">
-          <div class="role" id="server-role" onclick="openServerTipoutFormat()">
+          <div class="role" id="server-role" onclick="openTipoutFormat('server')">
             <img src="imgs/replicate-prediction-7ez5gwandvaotorikvfauklque.png" alt="">
             <div class="layer" id="server-role-layer">
               <h3>Server</h3>
@@ -94,7 +94,7 @@
             </div>
             <i class="fa-regular fa-square-check" id="server-role-selected"></i>
           </div>
-          <div class="role" id="bartender-role" onclick="openBartenderTipoutFormat()">
+          <div class="role" id="bartender-role" onclick="openTipoutFormat('bartender')">
             <img src="imgs/replicate-prediction-selttx7qa5esvarixww3tj22pu.png" alt="">
             <div class="layer" id="bartender-role-layer">
               <h3>Bartender</h3>
@@ -111,7 +111,7 @@
           <h1>Bartender:</h1>
           <div>
             <label>Tipout Format: <span style="color: rgb(39, 108, 211);">*</span></label>
-            <select id="bartender-tipout-format-selector" onchange="openBartenderTipoutMenu()">
+            <select id="bartender-tipout-format-selector" onchange="openTipoutMenu('bartender')">
               <option value="" disabled="disabled" selected="selected"></option>
               <option value="fids">Fids</option>
               <option value="custom">Custom</option>
@@ -119,7 +119,7 @@
           </div>
         </div>
         <div class="tipout-menu" id="bartender-tipout-menu">
-          <form name="bartender-tipout-menu-form" onsubmit="event.preventDefault(), calcBartenderTipout()" oninput="handleBartenderFormChange(event)">
+          <form name="bartender-tipout-menu-form" onsubmit="event.preventDefault(), calcBartenderTipout()" oninput="handleFormChange('bartender', event)">
             <div class="total-sales" id="bartender-total-sales">
               <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
               <div class="input-wrapper">
@@ -225,7 +225,7 @@
                   </div>
                 </div>
               </div>
-              <button class="reset-button" onclick="openBartenderTipoutMenu(), event.preventDefault()">Reset</button>
+              <button class="reset-button" onclick="openTipoutMenu('bartender'), event.preventDefault()">Reset</button>
             </form>
           </div>
         </div>
@@ -237,7 +237,7 @@
           <h1>Server:</h1>
           <div>
             <label>Tipout Format: <span style="color: rgb(39, 108, 211);">*</span></label>
-            <select id="server-tipout-format-selector" onchange="openServerTipoutMenu()">
+            <select id="server-tipout-format-selector" onchange="openTipoutMenu('server')">
               <option value="" disabled="disabled" selected="selected"></option>
               <option value="fids">Fids</option>
               <option value="custom">Custom</option>
@@ -245,7 +245,7 @@
           </div>
         </div>
         <div class="tipout-menu" id="server-tipout-menu">
-          <form name="server-tipout-menu-form" onsubmit="event.preventDefault(), calcServerTipout()" oninput="handleServerFormChange(event)">
+          <form name="server-tipout-menu-form" onsubmit="event.preventDefault(), calcServerTipout()" oninput="handleFormChange('server', event)">
             <div class="total-sales" id="server-total-sales">
               <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
               <div class="input-wrapper">
@@ -395,7 +395,7 @@
                   </div>
                 </div>
               </div>
-              <button class="reset-button" onclick="openServerTipoutMenu(), event.preventDefault()">Reset</button>
+              <button class="reset-button" onclick="openTipoutMenu('server'), event.preventDefault()">Reset</button>
             </form>
           </div>
         </div>

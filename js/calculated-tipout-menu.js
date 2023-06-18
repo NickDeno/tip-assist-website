@@ -1,4 +1,5 @@
 function calcBartenderTipout() {
+  const bartenderCalculatedTipoutMenu = document.getElementById('bartender-tipout-menu-calculated');
   const totalSales = parseFloat(document.getElementById('bartender-total-sales').querySelector('input').value) || 0;
   const foodSales = parseFloat(document.getElementById('bartender-total-foodsales').querySelector('input').value) || 0;
   const drinkSales = totalSales - foodSales;
@@ -15,10 +16,10 @@ function calcBartenderTipout() {
   const foodrunnerTipoutLine2 = document.getElementById('bartender-foodrunner-tipout-calculated-percent2');
   const foodrunnerTipoutLine3 = document.getElementById('bartender-foodrunner-tipout-calculated-final');
 
-  bartenderCalcuatedTipoutMenu.style.display = 'flex';
+  bartenderCalculatedTipoutMenu.style.display = 'flex';
   setTimeout(function() {
-      bartenderCalcuatedTipoutMenu.style.opacity = '1';
-      bartenderCalcuatedTipoutMenu.style.transition = 'opacity 1s';
+      bartenderCalculatedTipoutMenu.style.opacity = '1';
+      bartenderCalculatedTipoutMenu.style.transition = 'opacity 1s';
       document.getElementById('bartender-tipout-menu-calculated').scrollIntoView();
   }, 500);
   if (barbackTipoutType == 'total') {
@@ -38,6 +39,7 @@ function calcBartenderTipout() {
 }
 
 function calcServerTipout() {
+  const serverCalculatedTipoutMenu = document.getElementById('server-tipout-menu-calculated');
   const totalSales = parseFloat(document.getElementById('server-total-sales').querySelector('input').value) || 0;
   const foodSales = parseFloat(document.getElementById('server-total-foodsales').querySelector('input').value) || 0;
   const drinkSales = parseFloat(document.getElementById('server-total-drinksales').querySelector('input').value) || 0;
@@ -59,10 +61,10 @@ function calcServerTipout() {
   const bartenderTipoutLine1 = document.getElementById('server-bartender-tipout-calculated-percent');
   const bartenderTipoutLine2 = document.getElementById('server-bartender-tipout-calculated-final');
 
-  serverCalcuatedTipoutMenu.style.display = 'flex';
+  serverCalculatedTipoutMenu.style.display = 'flex';
   setTimeout(function() {
-      serverCalcuatedTipoutMenu.style.opacity = '1';
-      serverCalcuatedTipoutMenu.style.transition = 'opacity 1s';
+      serverCalculatedTipoutMenu.style.opacity = '1';
+      serverCalculatedTipoutMenu.style.transition = 'opacity 1s';
       document.getElementById('server-tipout-menu-calculated').scrollIntoView();
   }, 500);
   if (busserTipoutType == 'total') {
