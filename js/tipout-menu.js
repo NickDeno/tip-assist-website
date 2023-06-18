@@ -38,7 +38,7 @@ function openBartenderTipoutFormat () {
       serverTipoutFormat.style.display = 'none';
       serverTipoutMenu.style.display = 'none';
       serverCalcuatedTipoutMenu.style.display = 'none';
-      document.getElementById('bartender-tipout').scrollIntoView({block: "end" });
+      document.getElementById('bartender-tipout').scrollIntoView({block: "center" });
     }, 500);
 }
 

@@ -140,6 +140,7 @@
                 <option value="" disabled="disabled" selected="selected"></option>
                 <option value="total">By Total Sales</option>
                 <option value="food">By Food Sales</option>
+                <option value="drink">By Drink Sales</option>
               </select>
             </div>
             <div class="barback-tipout-percentage" id="bartender-barback-tipout-percentage">
@@ -157,6 +158,7 @@
                 <option value="" disabled="disabled" selected="selected"></option>
                 <option value="food">By Food Sales</option>
                 <option value="total">By Total Sales</option>
+                <option value="drink">By Drink Sales</option>
               </select>
             </div>
             <div class="foodrunner-tipout-percentage" id="bartender-foodrunner-tipout-percentage">
@@ -174,7 +176,8 @@
           <div class="tipout-menu-calculated" id="bartender-tipout-menu-calculated">
             <form name="bartender-tipout-menu-form-calculated">
               <div class="tipout-calculated" id="bartender-barback-tipout-calculated">
-                <p>Barback:</p> 
+                <h1>Barback:</h1> 
+                <h2 id="bartender-barback-tipout-sales-type">Based on</h2>
                 <div id="bartender-barback-tipout-calculated-percent1">
                   <label>x .15</label>
                   <div class="input-wrapper">
@@ -198,7 +201,8 @@
                 </div>
               </div>
               <div class="tipout-calculated" id="bartender-foodrunner-tipout-calculated">
-                <p>Foodrunner:</p> 
+                <h1>Foodrunner:</h1> 
+                <h2 id="bartender-foodrunner-tipout-sales-type">Based on</h2>
                 <div id="bartender-foodrunner-tipout-calculated-percent1">
                   <label>x .15</label>
                   <div class="input-wrapper">
@@ -268,6 +272,7 @@
                 <option value="" disabled="disabled" selected="selected"></option>
                 <option value="total">By Total Sales</option>
                 <option value="food">By Food Sales</option>
+                <option value="drink">By Drink Sales</option>
               </select>
             </div>
             <div class="busser-tipout-percentage" id="server-busser-tipout-percentage">
@@ -285,6 +290,7 @@
                 <option value="" disabled="disabled" selected="selected"></option>
                 <option value="food">By Food Sales</option>
                 <option value="total">By Total Sales</option>
+                <option value="drink">By Drink Sales</option>
               </select>
             </div>
             <div class="foodrunner-tipout-percentage" id="server-foodrunner-tipout-percentage">
@@ -301,6 +307,7 @@
               <select required>
                 <option value="" disabled="disabled" selected="selected"></option>
                 <option value="drink">By Drink Sales</option>
+                <option value="food">By Food Sales</option>
                 <option value="total">By Total Sales</option>
               </select>
             </div>
@@ -320,7 +327,8 @@
           <div class="tipout-menu-calculated" id="server-tipout-menu-calculated">
             <form name="server-tipout-menu-form-calculated">
               <div class="tipout-calculated" id="server-busser-tipout-calculated">
-                <p>Busser:</p> 
+                <h1>Busser:</h1> 
+                <h2 id="server-busser-tipout-sales-type">Based on</h2>
                 <div id="server-busser-tipout-calculated-percent1">
                   <label>x .15</label>
                   <div class="input-wrapper">
@@ -344,7 +352,8 @@
                 </div>
               </div>
               <div class="tipout-calculated" id="server-foodrunner-tipout-calculated">
-                <p>Foodrunner:</p> 
+                <h1>Foodrunner:</h1> 
+                <h2 id="server-foodrunner-tipout-sales-type">Based on</h2>
                 <div id="server-foodrunner-tipout-calculated-percent1">
                   <label>x .15</label>
                   <div class="input-wrapper">
@@ -368,7 +377,8 @@
                 </div>
               </div>
               <div class="tipout-calculated" id="server-bartender-tipout-calculated">
-                <p>Bartender:</p> 
+                <h1>Bartender:</h1>
+                <h2 id="server-bartender-tipout-sales-type">Based on</h2>
                 <div id="server-bartender-tipout-calculated-percent">
                   <label>Tipout: </label>
                   <div class="input-wrapper">
