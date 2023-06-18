@@ -84,7 +84,7 @@ function calcServerTipout() {
   } else if (bartenderTipoutType == 'food') {
     calculateAndSetTipout("Food Sales: ", bartenderTipoutTypeLabel, bartenderTipoutLine1, bartenderTipoutLine2, null, foodSales, bartenderTipoutPercentage);
   } else {
-    calculateAndSetTipout("Total Sales: ", bartenderTipoutTypeLabel, bartenderTipoutLine1, bartenderTipoutLine2, null, drinkSales, bartenderTipoutPercentage);
+    calculateAndSetTipout("Drink Sales: ", bartenderTipoutTypeLabel, bartenderTipoutLine1, bartenderTipoutLine2, null, drinkSales, bartenderTipoutPercentage);
   }
 }
 

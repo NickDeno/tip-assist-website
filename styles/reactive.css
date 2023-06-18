@@ -54,6 +54,10 @@
         font-size: 18px;
         height: 35px;
     }
+
+    .reset-button{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 900px){

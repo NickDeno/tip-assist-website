@@ -127,3 +127,7 @@
     pointer-events: none;
     opacity: 1;
 }
+
+.reset-button{
+    display: none;
+}
