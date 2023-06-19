@@ -119,7 +119,7 @@
           </div>
         </div>
         <div class="tipout-menu" id="bartender-tipout-menu">
-          <form name="bartender-tipout-menu-form" onsubmit="event.preventDefault(), calcBartenderTipout()" oninput="handleFormChange('bartender', event)">
+          <form name="bartender-tipout-menu-form" onsubmit="event.preventDefault(), calcTipout('bartender')" oninput="handleFormChange('bartender', event)">
             <div class="total-sales" id="bartender-total-sales">
               <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
               <div class="input-wrapper">
@@ -132,6 +132,13 @@
               <div class="input-wrapper">
                 <i class="fa-solid fa-dollar-sign"></i>
                 <input type="number" placeholder="Enter Total Food Sales" required> 
+              </div>
+            </div>
+            <div class="total-drinksales" id="bartender-total-drinksales">
+              <label>Total Drink Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <input type="number" placeholder="Enter Total Drink Sales" required> 
               </div>
             </div>
             <div class="how-barback-tipout" id="bartender-how-barback-tipout">
@@ -245,7 +252,7 @@
           </div>
         </div>
         <div class="tipout-menu" id="server-tipout-menu">
-          <form name="server-tipout-menu-form" onsubmit="event.preventDefault(), calcServerTipout()" oninput="handleFormChange('server', event)">
+          <form name="server-tipout-menu-form" onsubmit="event.preventDefault(), calcTipout('server')" oninput="handleFormChange('server', event)">
             <div class="total-sales" id="server-total-sales">
               <label>Total Sales: <span style="color: rgb(39, 108, 211);">*</span></label>
               <div class="input-wrapper">
@@ -380,7 +387,7 @@
               <div class="tipout-calculated" id="server-bartender-tipout-calculated">
                 <h1>Bartender:</h1>
                 <h2 id="server-bartender-tipout-sales-type">Based on</h2>
-                <div id="server-bartender-tipout-calculated-percent">
+                <div id="server-bartender-tipout-calculated-percent1">
                   <label>Tipout: </label>
                   <div class="input-wrapper">
                     <i class="fa-solid fa-dollar-sign"></i>
